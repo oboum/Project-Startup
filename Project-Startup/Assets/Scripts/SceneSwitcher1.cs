@@ -13,10 +13,13 @@ public class SceneSwitcher1 : MonoBehaviour
 
     public void SwitchScene()
     {
-        sceneNewUI.SetActive(true);
-        sceneNewWorld.SetActive(true);
-        sceneCurrentUI.SetActive(false);
-        sceneCurrentWorld.SetActive(false);
-        GameManager.instance.curSceneWorld = sceneNewWorld;
+        if (!GameManager.instance.userFrozen)
+        {
+            sceneNewUI.SetActive(true);
+            sceneNewWorld.SetActive(true);
+            sceneCurrentUI.SetActive(false);
+            sceneCurrentWorld.SetActive(false);
+            GameManager.instance.curSceneWorld = sceneNewWorld;
+        }
     }
 }

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Fella : MonoBehaviour
 {
+    [SerializeField]
+    private int score;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,5 +23,10 @@ public class Fella : MonoBehaviour
         {
             collision.transform.GetComponent<SceneSwitcher1>().SwitchScene();
         }
+    }
+
+    public int getScore()
+    {
+        return score;
     }
 }

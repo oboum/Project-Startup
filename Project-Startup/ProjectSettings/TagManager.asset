@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ChangeScene
   - FellaPos
+  - Fella
   layers:
   - Default
   - TransparentFX

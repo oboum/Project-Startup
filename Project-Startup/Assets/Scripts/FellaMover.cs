@@ -45,6 +45,7 @@ public class FellaMover : MonoBehaviour
                     }
 
                     transform.position = positions[closest].position;
+                    transform.parent = positions[closest];
                 }
             }
         }
@@ -52,7 +53,7 @@ public class FellaMover : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !GameManager.instance.userFrozen)
         {
             followMouse = true;
             transform.parent = null;
