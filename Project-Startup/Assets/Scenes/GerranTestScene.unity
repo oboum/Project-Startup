@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 30736028}
   - component: {fileID: 30736027}
   - component: {fileID: 30736033}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: fellaDrum
   m_TagString: Fella
   m_Icon: {fileID: 0}
@@ -325,7 +325,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -692,7 +692,7 @@ GameObject:
   - component: {fileID: 293210129}
   - component: {fileID: 293210128}
   - component: {fileID: 293210127}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: fellaDrum (1)
   m_TagString: Fella
   m_Icon: {fileID: 0}
@@ -876,7 +876,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1349,7 +1349,7 @@ GameObject:
   - component: {fileID: 835952194}
   - component: {fileID: 835952193}
   - component: {fileID: 835952199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: fellapiano
   m_TagString: Fella
   m_Icon: {fileID: 0}
@@ -1436,7 +1436,7 @@ CapsuleCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -3486,6 +3486,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2833087684768063576, guid: c0a172bf1c771ec42b2b499ccc992c40, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4614572293055238181, guid: c0a172bf1c771ec42b2b499ccc992c40, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.3177722
@@ -3533,6 +3537,10 @@ PrefabInstance:
     - target: {fileID: 8946724030303297318, guid: c0a172bf1c771ec42b2b499ccc992c40, type: 3}
       propertyPath: m_Name
       value: fellaFlute
+      objectReference: {fileID: 0}
+    - target: {fileID: 8946724030303297318, guid: c0a172bf1c771ec42b2b499ccc992c40, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8946724030303297318, guid: c0a172bf1c771ec42b2b499ccc992c40, type: 3}
       propertyPath: m_TagString
