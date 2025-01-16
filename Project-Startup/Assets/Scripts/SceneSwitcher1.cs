@@ -3,10 +3,6 @@ using UnityEngine;
 public class SceneSwitcher1 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject sceneCurrentUI;
-    [SerializeField]
-    private GameObject sceneCurrentWorld;
-    [SerializeField]
     private GameObject sceneNewUI;
     [SerializeField]
     private GameObject sceneNewWorld;
@@ -15,8 +11,9 @@ public class SceneSwitcher1 : MonoBehaviour
     {
         sceneNewUI.SetActive(true);
         sceneNewWorld.SetActive(true);
-        sceneCurrentUI.SetActive(false);
-        sceneCurrentWorld.SetActive(false);
+        GameManager.instance.curSceneUI.SetActive(false);
+        GameManager.instance.curSceneWorld.SetActive(false);
+        GameManager.instance.curSceneUI = sceneNewUI;
         GameManager.instance.curSceneWorld = sceneNewWorld;
     }
 }

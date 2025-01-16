@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public GameObject curSceneUI;
     public GameObject curSceneWorld;
 
 
