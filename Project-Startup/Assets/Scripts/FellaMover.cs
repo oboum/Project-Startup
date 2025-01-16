@@ -45,8 +45,6 @@ public class FellaMover : MonoBehaviour
                     }
 
                     transform.position = positions[closest].position;
-                    print(transform.position);
-                    print(positions[closest].position);
                 }
             }
         }
