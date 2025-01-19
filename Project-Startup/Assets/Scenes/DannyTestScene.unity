@@ -970,6 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curSceneWorld: {fileID: 2060383791}
   userFrozen: 0
+  interacting: 0
 --- !u!4 &436645672
 Transform:
   m_ObjectHideFlags: 0
@@ -2226,6 +2227,7 @@ GameObject:
   - component: {fileID: 1431504571}
   - component: {fileID: 1431504574}
   - component: {fileID: 1431504575}
+  - component: {fileID: 1431504576}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2300,13 +2302,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1431504570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 3.41, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &1431504574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2363,8 +2365,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4facceae3d2307444a4510328a7313ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomOutMin: 1
-  zoomOutMax: 8
+  zoomOutMin: 30
+  zoomOutMax: 60
+  panSpeed: 0.1
+  zoomSpeed: 10
+  rotationSpeed: 100
+  pitchBounds: {x: 10, y: 80}
+--- !u!114 &1431504576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431504570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31057ef324a04478bb4f7d469b3cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1478593006
 GameObject:
   m_ObjectHideFlags: 0
