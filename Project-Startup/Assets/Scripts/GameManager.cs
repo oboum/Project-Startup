@@ -1,7 +1,8 @@
 using NUnit.Framework;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +19,12 @@ public class GameManager : MonoBehaviour
     public List<Fella> fellasInHomeRoom; // spawn fellas here when captured
     public List<Fella> fellasInConcertRoom;
 
+    public List<GameObject> newFellas;
+    [SerializeField]
+    private List<GameObject> ownedFellas;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
         if (GameManager.instance == null)
         {
@@ -31,13 +35,39 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void LoadNewScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void spawnFellas()
+    {
+        foreach (GameObject fella in newFellas)
+        {
+            print("test");
+            ownedFellas.Add(fella);
+        }
+        newFellas.Clear();
+
+        for (int i = 0; i < ownedFellas.Count; i++)
+        {
+            GameObject fella = Instantiate(ownedFellas[i], curSceneWorld.transform);
+            fella.transform.position = new Vector3(i,1,0);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void capturedFella(GameObject fella)
     {
+        newFellas.Add(fella);
+    }
+    void Update(){
         interactingUI = EventSystem.current.IsPointerOverGameObject();
+
     }
 }
