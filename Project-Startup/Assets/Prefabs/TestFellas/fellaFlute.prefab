@@ -139,6 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 5
+  fellaName: Flute Boy
+  descriptionText: This boy flutes hard.
+  cosmeticHeight: 1.6
+  cosmetics: []
 --- !u!54 &6873438568036550333
 Rigidbody:
   m_ObjectHideFlags: 0

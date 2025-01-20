@@ -139,6 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 20
+  fellaName: DrumAah
+  descriptionText: This mf drum.
+  cosmeticHeight: 1.6
+  cosmetics: []
 --- !u!54 &5499115801193150674
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -15,11 +15,13 @@ public class GameManager : MonoBehaviour
     public bool interactingUI; // no need to update this one
     public bool canMove = true;
 
-    public List<Fella> fellaDex; // all collected fellas not in home or concert
-    public List<Fella> fellasInHomeRoom; // spawn fellas here when captured
-    public List<Fella> fellasInConcertRoom;
+    public GameObject fellaInspectionScreen;
+
+    [SerializeField]
+    public List<Cosmetic> cosmeticsInventory;
 
     public List<GameObject> newFellas;
+
     [SerializeField]
     private List<GameObject> ownedFellas;
 
@@ -31,9 +33,6 @@ public class GameManager : MonoBehaviour
         if (GameManager.instance == null)
         {
             instance = this;
-            fellaDex = new List<Fella>();
-            fellasInHomeRoom = new List<Fella>();
-            fellasInConcertRoom = new List<Fella>();
         }
         else
         {
@@ -68,9 +67,17 @@ public class GameManager : MonoBehaviour
     {
         newFellas.Add(fella);
     }
-    void Update(){
-        interactingUI = EventSystem.current.IsPointerOverGameObject();
-
+    void Update()
+    {
+        if (!interactingUI)
+        {
+            interactingUI = EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0);
+            
+        }
+        else
+        {
+            interactingUI = !Input.GetMouseButtonUp(0);
+        }
     }
 
     public void addEXP(int xp)

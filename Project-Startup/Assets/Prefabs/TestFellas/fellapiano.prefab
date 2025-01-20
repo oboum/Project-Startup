@@ -139,6 +139,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
+  fellaName: Piano Man
+  descriptionText: He likes pretzels. Plays piano. Is man.
+  cosmeticHeight: 1
+  cosmetics: []
 --- !u!54 &2736174281294061417
 Rigidbody:
   m_ObjectHideFlags: 0
