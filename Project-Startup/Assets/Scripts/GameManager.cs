@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> ownedFellas;
 
+    [SerializeField]
+    private int exp;
 
     void Awake()
     {
@@ -69,5 +71,10 @@ public class GameManager : MonoBehaviour
     void Update(){
         interactingUI = EventSystem.current.IsPointerOverGameObject();
 
+    }
+
+    public void addEXP(int xp)
+    {
+        exp += xp;
     }
 }

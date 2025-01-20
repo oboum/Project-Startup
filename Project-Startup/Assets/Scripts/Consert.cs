@@ -15,6 +15,10 @@ public class Consert : MonoBehaviour
     private int score;
     [SerializeField]
     private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private GameObject scoreScreen;
+    [SerializeField]
+    private TextMeshProUGUI scoreScreenScoreText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,6 +67,9 @@ public class Consert : MonoBehaviour
         }
         consertGoing = false;
         GameManager.instance.userFrozen = false;
+        GameManager.instance.addEXP(score);
+        scoreScreen.SetActive(true);
+        scoreScreenScoreText.text = "EXP: " + score;
     }
 
     public IEnumerator Timer()
