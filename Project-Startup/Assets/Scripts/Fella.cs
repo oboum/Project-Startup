@@ -19,18 +19,18 @@ public class Fella : MonoBehaviour
     [SerializeField]
     public float cosmeticHeight;
    [SerializeField] List<Cosmetic> cosmetics;
+    [SerializeField] List<Cosmetic> cosmeticPrefabs;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "ChangeScene")
@@ -51,20 +51,11 @@ public class Fella : MonoBehaviour
 
     void equipCosmetic(Cosmetic instance,Cosmetic c)
     {
-            GameManager.instance.cosmeticsInventory.Remove(c);
-            Debug.Log("Removed cosmetic from inv");
         instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
         cosmetics.Add(instance);
+        cosmeticPrefabs.Add(c);
+        GameManager.instance.cosmeticsInventory.Remove(c);
     }
-    void removeCosmetic(Cosmetic instance,Cosmetic c)
-    {
-            GameManager.instance.cosmeticsInventory.Add(c);
-            Debug.Log("Added cosmetic to inv");
-        
-        cosmetics.Remove(instance);
-        Destroy(instance);
-    }
-
     private void OnMouseOver()
     {
         //fella inspection
@@ -85,34 +76,45 @@ public class Fella : MonoBehaviour
             if (fatigueText != null) fatigueText.text = "Maybe tired?";
             if (descText != null) descText.text = descriptionText;
 
-            List<string> cosmeticNames = new List<string>() { "None" };
+            List<string> cosmeticNames = new List<string>() { "Select cosmetic" };
+
             foreach (Cosmetic cosmetic in GameManager.instance.cosmeticsInventory)
             {
-                Debug.Log(cosmetic.name);
                 cosmeticNames.Add(cosmetic.name);
             }
-
+            cosmeticNames.Add("None");
             dropdown.ClearOptions();
             dropdown.AddOptions(cosmeticNames);
 
             dropdown.onValueChanged.AddListener(delegate
             {
                 string selectedCosmeticName = dropdown.options[dropdown.value].text;
-
+                print(selectedCosmeticName);
                 if (selectedCosmeticName == "None")
                 {
-                    foreach (Cosmetic equippedCosmetic in cosmetics)
+                    List<Transform> toDestroy = new List<Transform>();
+                    foreach (Transform child in transform)
                     {
-                        Debug.Log(equippedCosmetic.name);
-                        Cosmetic cosmeticToRemove = GameManager.instance.cosmeticsInventory.Find(cosmetic => cosmetic.name == selectedCosmeticName);
-
-                        removeCosmetic(equippedCosmetic,cosmeticToRemove);
+                        Cosmetic childCosmetic = child.GetComponent<Cosmetic>();
+                        if ( childCosmetic!= null)
+                        {
+                            GameManager.instance.cosmeticsInventory.Add(cosmeticPrefabs.Find(cosmetic=> childCosmetic.Name==cosmetic.Name));
+                            cosmetics.Remove(childCosmetic);
+                            toDestroy.Add(child);
+                        }
                     }
+                    foreach(Transform transform in toDestroy)
+                    {
+                        Destroy(transform.gameObject);
+                    }
+                    return;
                 }
-
-                Cosmetic cosmeticToAdd = GameManager.instance.cosmeticsInventory.Find(cosmetic => cosmetic.name == selectedCosmeticName);
-                Cosmetic cosmeticInstance = Instantiate(cosmeticToAdd, transform);
-                equipCosmetic(cosmeticInstance,cosmeticToAdd);
+                else
+                {
+                    Cosmetic cosmeticToAdd = GameManager.instance.cosmeticsInventory.Find(cosmetic => cosmetic.name == selectedCosmeticName);
+                    Cosmetic cosmeticInstance = Instantiate(cosmeticToAdd, transform);
+                    equipCosmetic(cosmeticInstance, cosmeticToAdd);
+                }
             });
 
             tempInspector.GetComponentInChildren<Button>().onClick.AddListener(() =>

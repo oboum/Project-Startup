@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7037776422664638336}
   - component: {fileID: 5605317132866793645}
   - component: {fileID: 6187489087769018942}
-  - component: {fileID: 4860756296006705083}
+  - component: {fileID: 727740047392196143}
   m_Layer: 3
   m_Name: FancyAfro
   m_TagString: Untagged
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4860756296006705083
+--- !u!114 &727740047392196143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d262bc46f86a19418f43a9a0ed7165c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: FancyAfro
-  ScoreBonus: 15
+  Name: 
+  ScoreBonus: 0
   Mesh: {fileID: 0}
   Material: {fileID: 0}
