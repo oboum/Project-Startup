@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     public List<Cosmetic> cosmeticsInventory;
+    
+    [SerializeField]
+    public List<GameObject> BaitInv;
 
     public List<GameObject> newFellas;
 
@@ -26,7 +29,15 @@ public class GameManager : MonoBehaviour
     private List<GameObject> ownedFellas;
 
     [SerializeField]
+    private GameObject[] lvlRewards;
+
+    [SerializeField]
     private int exp;
+
+    private int expToNextLevel = 100;
+
+    [SerializeField]
+    private int lvl;
 
     void Awake()
     {
@@ -83,5 +94,26 @@ public class GameManager : MonoBehaviour
     public void addEXP(int xp)
     {
         exp += xp;
+
+        while(exp >= expToNextLevel)
+        {
+            lvl++;
+
+            if (lvl < lvlRewards.Length)
+            {
+                if (lvlRewards[lvl].GetComponent<Cosmetic>() != null)
+                {
+                    cosmeticsInventory.Add(lvlRewards[lvl].GetComponent<Cosmetic>());
+                }
+                else if(lvlRewards[lvl].tag == "Bait")
+                {
+                    BaitInv.Add(lvlRewards[lvl]);
+                }
+            }
+
+            exp -= expToNextLevel;
+            expToNextLevel += 100 * lvl;
+
+        }
     }
 }

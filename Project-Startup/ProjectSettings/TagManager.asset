@@ -8,6 +8,7 @@ TagManager:
   - FellaPos
   - Fella
   - Scene
+  - Bait
   layers:
   - Default
   - TransparentFX
