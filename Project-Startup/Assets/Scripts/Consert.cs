@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Consert : MonoBehaviour
+public class Concert : MonoBehaviour
 {
-    List<GameObject> fellas = new List<GameObject>();
+    List<GameObject> fellas = new List<GameObject>(); // singers
+    List<GameObject> dancingFellas = new List<GameObject>(); // bystanders
 
-    private bool consertGoing = false;
+    private bool concertGoing = false;
     private float timer;
     [SerializeField]
-    private float consertTime;
+    private float concertTime;
 
     private int score;
     [SerializeField]
@@ -18,7 +19,13 @@ public class Consert : MonoBehaviour
     [SerializeField]
     private GameObject scoreScreen;
     [SerializeField]
-    private TextMeshProUGUI scoreScreenScoreText;
+    private NumberGoUp scoreScreenScoreText;
+
+    [SerializeField] Transform concertCamTransform;
+    private Vector3 originalCamPos;
+    private Quaternion originalCamRot;
+    [SerializeField] private float camLerpSpeed = 2f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,12 +36,15 @@ public class Consert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        originalCamPos = Camera.main.transform.position;
+        originalCamRot = Camera.main.transform.rotation;
     }
 
     public void StartConsert()
     {
         fellas.Clear();
+        originalCamPos = Camera.main.transform.position;
+        originalCamRot = Camera.main.transform.rotation;
 
         foreach (Transform child in transform.transform)
         {
@@ -42,20 +52,30 @@ public class Consert : MonoBehaviour
             {
                 fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
             }
-
+            if(child.tag == "Fella")
+            {
+                dancingFellas.Add(child.gameObject);
+            }
         }
 
         foreach(GameObject fella in fellas)
         {
             fella.GetComponent<AudioSource>().Play();
         }
+        foreach(GameObject dancingFella in dancingFellas)
+        {
+            dancingFella.AddComponent<Dancing>();
+
+        }
 
         timer = 0;
         score = 0;
         scoreText.text = "score: " + score;
 
-        consertGoing = true;
-        GameManager.instance.userFrozen = true;
+        concertGoing = true;
+        GameManager.instance.userFrozen = true; 
+        StartCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
+
         StartCoroutine(Timer());
     }
 
@@ -65,16 +85,22 @@ public class Consert : MonoBehaviour
         {
             fella.GetComponent<AudioSource>().Stop();
         }
-        consertGoing = false;
+        foreach(GameObject dancingFella in dancingFellas)
+        {
+            Destroy(dancingFella.GetComponent<Dancing>());
+        }
+        concertGoing = false;
         GameManager.instance.userFrozen = false;
         GameManager.instance.addEXP(score);
         scoreScreen.SetActive(true);
-        scoreScreenScoreText.text = "EXP: " + score;
+        scoreScreenScoreText.SetTarget(score);
+        StartCoroutine(lerpCamera(originalCamPos, originalCamRot));
+
     }
 
     public IEnumerator Timer()
     {
-        while (consertGoing)
+        while (concertGoing)
         {
             yield return new WaitForSeconds(1);
             foreach (GameObject fella in fellas)
@@ -84,11 +110,26 @@ public class Consert : MonoBehaviour
             scoreText.text = "score: " + score;
 
             timer++;
-            if (timer >= consertTime)
+            if (timer >= concertTime)
             {
                 StopConsert();
                 StopCoroutine(Timer());
+                StopCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
             }
         }
+    }
+    IEnumerator lerpCamera(Vector3 targetPosition, Quaternion targetRotation)
+    {
+        Camera mainCamera = Camera.main;
+        while (Vector3.Distance(mainCamera.transform.position, targetPosition) > 0.01f || Quaternion.Angle(mainCamera.transform.rotation, targetRotation) > 0.1f)
+        {
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetPosition, Time.deltaTime * camLerpSpeed);
+            mainCamera.transform.rotation = Quaternion.Lerp(mainCamera.transform.rotation, targetRotation, Time.deltaTime * camLerpSpeed);
+
+            yield return null;
+        }
+
+        mainCamera.transform.position = targetPosition;
+        mainCamera.transform.rotation = targetRotation;
     }
 }
