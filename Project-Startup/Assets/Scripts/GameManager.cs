@@ -1,5 +1,7 @@
-using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,8 +11,17 @@ public class GameManager : MonoBehaviour
     public GameObject curSceneWorld;
 
     public bool userFrozen = false;
+    public bool interactingObj = false; // set this to true with object interactions so the camera doesn't move
+    public bool interactingUI; // no need to update this one
+    public bool canMove = true;
+
+    public GameObject fellaInspectionScreen;
+
+    [SerializeField]
+    public List<Cosmetic> cosmeticsInventory;
 
     public List<GameObject> newFellas;
+
     [SerializeField]
     private List<GameObject> ownedFellas;
 
@@ -19,10 +30,10 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        if(instance == null)
+        if (GameManager.instance == null)
         {
             instance = this;
-        }    
+        }
         else
         {
             Destroy(gameObject);
@@ -55,9 +66,18 @@ public class GameManager : MonoBehaviour
     {
         newFellas.Add(fella);
     }
-
-    void Update(){
-        
+    
+    void Update()
+    {
+        if (!interactingUI)
+        {
+            interactingUI = EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0);
+            
+        }
+        else
+        {
+            interactingUI = !Input.GetMouseButtonUp(0);
+        }
     }
 
     public void addEXP(int xp)
