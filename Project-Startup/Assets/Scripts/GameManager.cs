@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject fella in newFellas)
         {
-            print("test");
             ownedFellas.Add(fella);
         }
         newFellas.Clear();
@@ -66,6 +65,7 @@ public class GameManager : MonoBehaviour
     {
         newFellas.Add(fella);
     }
+    
     void Update()
     {
         if (!interactingUI)

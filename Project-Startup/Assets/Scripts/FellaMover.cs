@@ -20,7 +20,6 @@ public class FellaMover : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 followMouse = false;
-                GameManager.instance.interactingObj=false;
                 transform.parent = GameManager.instance.curSceneWorld.transform;
 
                 List<Transform> positions = new List<Transform>();
@@ -29,7 +28,7 @@ public class FellaMover : MonoBehaviour
                 {
                     if (child.tag == "FellaPos" && child.childCount == 0)
                     {
-                        positions.Add(child);
+                        positions.Add(child);  
                     }
 
                 }
@@ -56,7 +55,6 @@ public class FellaMover : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && !GameManager.instance.userFrozen)
         {
-            GameManager.instance.interactingObj = true;
             followMouse = true;
             transform.parent = null;
         }
