@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
     {
         foreach (GameObject fella in newFellas)
         {
-            print("test");
             ownedFellas.Add(fella);
         }
         newFellas.Clear();
@@ -58,8 +57,7 @@ public class GameManager : MonoBehaviour
     }
 
     void Update(){
-        interactingUI = EventSystem.current.IsPointerOverGameObject();
-
+        
     }
 
     public void addEXP(int xp)
