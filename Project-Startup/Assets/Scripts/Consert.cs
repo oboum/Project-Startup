@@ -26,6 +26,9 @@ public class Concert : MonoBehaviour
     private Quaternion originalCamRot;
     [SerializeField] private float camLerpSpeed = 2f;
 
+    [SerializeField]
+    private AudioSource BG;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -58,6 +61,8 @@ public class Concert : MonoBehaviour
             }
         }
 
+        BG.Stop();
+
         foreach(GameObject fella in fellas)
         {
             fella.GetComponent<AudioSource>().Play();
@@ -89,6 +94,7 @@ public class Concert : MonoBehaviour
         {
             Destroy(dancingFella.GetComponent<Dancing>());
         }
+        BG.Play();
         concertGoing = false;
         GameManager.instance.userFrozen = false;
         GameManager.instance.addEXP(score);
