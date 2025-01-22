@@ -1146,7 +1146,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -187.8, y: 115.9}
+  m_AnchoredPosition: {x: -187.8, y: 106.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &902376891
@@ -2141,10 +2141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8eaed791afaff44a87d08efa8b677c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  consertTime: 10
+  concertTime: 0
   scoreText: {fileID: 1835910033}
   scoreScreen: {fileID: 2021326289}
-  scoreScreenScoreText: {fileID: 1670714486}
+  scoreScreenScoreText: {fileID: 0}
+  concertCamTransform: {fileID: 0}
+  camLerpSpeed: 2
 --- !u!1 &1431504570
 GameObject:
   m_ObjectHideFlags: 0
