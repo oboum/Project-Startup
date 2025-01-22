@@ -15,11 +15,13 @@ public class FellaMover : MonoBehaviour
     {
         if(followMouse == true)
         {
+            GameManager.instance.canMove = false;
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, -Camera.main.transform.position.z));
 
             if (Input.GetMouseButtonUp(0))
             {
                 followMouse = false;
+                GameManager.instance.canMove = true;
                 transform.parent = GameManager.instance.curSceneWorld.transform;
 
                 List<Transform> positions = new List<Transform>();
@@ -30,7 +32,6 @@ public class FellaMover : MonoBehaviour
                     {
                         positions.Add(child);  
                     }
-
                 }
 
                 if (positions.Count > 0)
@@ -43,7 +44,6 @@ public class FellaMover : MonoBehaviour
                             closest = i;
                         }
                     }
-
                     transform.position = positions[closest].position;
                     transform.parent = positions[closest];
                 }

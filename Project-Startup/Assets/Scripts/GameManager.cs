@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -82,8 +81,7 @@ public class GameManager : MonoBehaviour
     {
         if (!interactingUI)
         {
-            interactingUI = EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0);
-            
+               interactingUI = EventSystem.current.IsPointerOverGameObject() && Input.GetMouseButtonDown(0);
         }
         else
         {
