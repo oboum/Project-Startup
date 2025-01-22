@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3880711350253856754}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -143,6 +143,7 @@ MonoBehaviour:
   descriptionText: This mf drum.
   cosmeticHeight: 1.6
   cosmetics: []
+  cosmeticPrefabs: []
 --- !u!54 &5499115801193150674
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -180,8 +181,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2b990bf807cf9584184d80114e3bbe2f, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2b990bf807cf9584184d80114e3bbe2f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fedcb416460e8ee49a2ea224e2196651, type: 3}
+  m_Resource: {fileID: 8300000, guid: fedcb416460e8ee49a2ea224e2196651, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
