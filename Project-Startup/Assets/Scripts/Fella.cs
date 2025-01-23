@@ -7,19 +7,24 @@ using UnityEngine.UI;
 
 public class Fella : MonoBehaviour
 {
+    private enum FellaRarity
+    {
+        COMMON,
+        RARE,
+        LEGENDARY
+    }
     [SerializeField]
     private int score;
     [UnityEngine.Range(1, 100)]
     private int fatigue;
+
     [SerializeField]
     private string fellaName;
     [SerializeField]
     private string descriptionText;
-    // could use enum for fatigue
-    [SerializeField]
-    public float cosmeticHeight;
    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
+    [SerializeField] Transform cosmeticHeight;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,7 +56,7 @@ public class Fella : MonoBehaviour
 
     void equipCosmetic(Cosmetic instance,Cosmetic c)
     {
-        instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
+        instance.transform.position =cosmeticHeight.position;
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
