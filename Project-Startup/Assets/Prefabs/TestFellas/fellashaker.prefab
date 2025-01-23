@@ -31,14 +31,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5828628553667361544}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.196, y: 12.196, z: 12.196}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2239360639091849819}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &7885550953157181073
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   cosmetics: []
   cosmeticPrefabs: []
   cosmeticHeight: {fileID: 2239360639091849819}
+  fellaAudio: {fileID: 8300000, guid: d6179659d9e53ab4d9522e4f67ee5f7b, type: 3}
 --- !u!54 &6873438568036550333
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!82 &9006111261380982450
 AudioSource:

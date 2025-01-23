@@ -145,6 +145,7 @@ MonoBehaviour:
   cosmetics: []
   cosmeticPrefabs: []
   cosmeticHeight: {fileID: 7146672459428651170}
+  fellaAudio: {fileID: 8300000, guid: 39b63d170a15cfd41815bee8d37d34f0, type: 3}
 --- !u!54 &7168175958860300941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!82 &7840186596267437579
 AudioSource:

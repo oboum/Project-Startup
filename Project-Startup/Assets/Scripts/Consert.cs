@@ -48,6 +48,25 @@ public class Concert : MonoBehaviour
         }
     }
 
+    public void playPreview()
+    {
+        fellas.Clear();
+        foreach (Transform child in transform.transform)
+        {
+            if (child.tag == "FellaPos" && child.childCount >= 1)
+            {
+                fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
+            }
+
+        }
+
+
+        foreach (GameObject fella in fellas)
+        {
+            fella.GetComponent<AudioSource>().PlayOneShot(fella.GetComponent<Fella>().fellaAudio);
+        }
+    }
+
     public void StartConsert()
     {
         fellas.Clear();

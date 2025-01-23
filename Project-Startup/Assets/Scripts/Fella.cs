@@ -26,6 +26,8 @@ public class Fella : MonoBehaviour
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
     [SerializeField] Transform cosmeticHeight;
 
+    public AudioClip fellaAudio;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +38,12 @@ public class Fella : MonoBehaviour
     void Update()
     {
     }
+
+    public void TestSound()
+    {
+        GetComponent<AudioSource>().PlayOneShot(fellaAudio);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "ChangeScene")
@@ -122,11 +130,24 @@ public class Fella : MonoBehaviour
                 }
             });
 
-            tempInspector.GetComponentInChildren<Button>().onClick.AddListener(() =>
+            foreach(Button button in tempInspector.GetComponentsInChildren<Button>())
             {
-                Destroy(tempInspector);
-                GameManager.instance.canMove = true;
-            });
+                if(button.gameObject.name == "Sound")
+                {
+                    button.onClick.AddListener(() =>
+                    {
+                        TestSound();
+                    });
+                }
+                else
+                {
+                    button.onClick.AddListener(() =>
+                    {
+                        Destroy(tempInspector);
+                        GameManager.instance.canMove = true;
+                    });
+                }
+            }
         }
     }
 }
