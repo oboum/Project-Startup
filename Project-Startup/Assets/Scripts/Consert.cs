@@ -9,6 +9,7 @@ public class Concert : MonoBehaviour
     List<GameObject> dancingFellas = new List<GameObject>(); // bystanders
 
     private bool concertGoing = false;
+    bool concertEnded = false;
     private float timer;
     [SerializeField]
     private float concertTime;
@@ -39,8 +40,12 @@ public class Concert : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        originalCamPos = Camera.main.transform.position;
-        originalCamRot = Camera.main.transform.rotation;
+
+        if(concertEnded)
+        {
+            scoreText.text = "Score: " + score;
+            concertEnded = false;
+        }
     }
 
     public void StartConsert()
@@ -75,13 +80,13 @@ public class Concert : MonoBehaviour
 
         timer = 0;
         score = 0;
-        scoreText.text = "score: " + score;
 
         concertGoing = true;
         GameManager.instance.userFrozen = true; 
         StartCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
 
         StartCoroutine(Timer());
+
     }
 
     public void StopConsert()
@@ -96,6 +101,7 @@ public class Concert : MonoBehaviour
         }
         BG.Play();
         concertGoing = false;
+        concertEnded = true;
         GameManager.instance.userFrozen = false;
         GameManager.instance.addEXP(score);
         scoreScreen.SetActive(true);
@@ -120,7 +126,9 @@ public class Concert : MonoBehaviour
             {
                 StopConsert();
                 StopCoroutine(Timer());
-                StopCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
+                StartCoroutine(lerpCamera(originalCamPos, originalCamRot));
+
+                print("wth");
             }
         }
     }
