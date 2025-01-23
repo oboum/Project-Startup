@@ -83,9 +83,8 @@ public class Concert : MonoBehaviour
 
         concertGoing = true;
         GameManager.instance.userFrozen = true; 
-
         StartCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
-        print("thfeffwe");
+
         StartCoroutine(Timer());
 
     }
