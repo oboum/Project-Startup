@@ -6,6 +6,12 @@ public class PanZoomRotate : MonoBehaviour
     public float fovMax = 60f;
     public float panSpeed = 0.5f;
     public float zoomSpeed = 10f;
+
+    public float leftLimit;
+    public float rightLimit;
+    public float backwardLimit;
+    public float forwardLimit;
+
     //public float rotationSpeed = 100f;
 
    // public Vector2 pitchLimits = new Vector2(10f, 80f);
@@ -20,8 +26,8 @@ public class PanZoomRotate : MonoBehaviour
     }
     void Update()
     {
-        if( GameManager.instance.interactingUI || GameManager.instance.interactingObj || !GameManager.instance.canMove) return;
-        
+        if (GameManager.instance.interactingUI || GameManager.instance.interactingObj || !GameManager.instance.canMove) return;
+
         if (Input.GetMouseButtonDown(0))
             touchStart = getWorldPoint(Input.mousePosition);
         /*else if (Input.GetMouseButtonDown(1))
@@ -37,24 +43,28 @@ public class PanZoomRotate : MonoBehaviour
 
             Camera.main.transform.position += direction * panSpeed;
         }
-       /* else if (Input.GetMouseButton(1))
-        {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+        /* else if (Input.GetMouseButton(1))
+         {
+             float mouseX = Input.GetAxis("Mouse X");
+             float mouseY = Input.GetAxis("Mouse Y");
 
-            yaw += mouseX * rotationSpeed * Time.deltaTime;
+             yaw += mouseX * rotationSpeed * Time.deltaTime;
 
-            pitch -= mouseY * rotationSpeed * Time.deltaTime;
-            pitch = Mathf.Clamp(pitch, pitchLimits.x, pitchLimits.y);
+             pitch -= mouseY * rotationSpeed * Time.deltaTime;
+             pitch = Mathf.Clamp(pitch, pitchLimits.x, pitchLimits.y);
 
-            Camera.main.transform.eulerAngles = new Vector3(pitch, yaw, 0);
-        }*/
+             Camera.main.transform.eulerAngles = new Vector3(pitch, yaw, 0);
+         }*/
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (Mathf.Abs(scroll) > 0.01f)
             Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView - scroll * zoomSpeed, fovMin, fovMax);
-
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, leftLimit, rightLimit),
+            transform.position.y,
+            Mathf.Clamp(transform.position.z, backwardLimit, forwardLimit));
     }
+
     Vector3 getWorldPoint(Vector3 screenPos)
     {
         Ray ray = Camera.main.ScreenPointToRay(screenPos);
