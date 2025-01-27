@@ -88,7 +88,11 @@ public class GameManager : MonoBehaviour
             interactingUI = !Input.GetMouseButtonUp(0);
         }
     }
-
+    public void SetCanMove(bool b)
+    {
+        canMove = b;
+        userFrozen = !b;
+    }
     public void addEXP(int xp)
     {
         exp += xp;

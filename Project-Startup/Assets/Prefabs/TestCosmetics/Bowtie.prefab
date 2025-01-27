@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6187489087769018942}
   - component: {fileID: 727740047392196143}
   m_Layer: 3
-  m_Name: FancyAfro
+  m_Name: Bowtie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalScale: {x: 0.02, y: 0.005464354, z: 0.019139599}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d262bc46f86a19418f43a9a0ed7165c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  ScoreBonus: 0
+  Name: Bowtie
+  ScoreBonus: 10
   Mesh: {fileID: 0}
   Material: {fileID: 0}

@@ -22,11 +22,17 @@ public class Fella : MonoBehaviour
     private string fellaName;
     [SerializeField]
     private string descriptionText;
-   [SerializeField] List<Cosmetic> cosmetics;
+    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
-    
+    [SerializeField] Transform hatPos;
+    [SerializeField] Transform bowPos;
+
     public AudioClip fellaAudio;
 
+
+    float lastClickTime = 0f;
+    float doubleClickTime = 0.3f;
+    bool dragging = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +41,7 @@ public class Fella : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     public void TestSound()
@@ -60,20 +67,19 @@ public class Fella : MonoBehaviour
         return score + bonus;
     }
 
-    void equipCosmetic(Cosmetic instance,Cosmetic c)
+    void equipCosmetic(Cosmetic instance, Cosmetic c)
     {
-            if (instance.Name == "Hat")
+        if (instance.Name == "Hat")
             instance.transform.position = hatPos.position;
         else if (instance.Name == "Bowtie")
             instance.transform.position = bowPos.position;
 
         if (cosmetics.Contains(instance)) cosmetics.Add(instance);
         if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
-       if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
+        if (GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
     }
-    private void OnMouseOver()
+    void FellaInspectionScreen()
     {
-        //fella inspection
         if (Input.GetMouseButtonDown(1) && !GameManager.instance.userFrozen)
         {
             GameManager.instance.canMove = false;
@@ -111,14 +117,14 @@ public class Fella : MonoBehaviour
                     foreach (Transform child in transform)
                     {
                         Cosmetic childCosmetic = child.GetComponent<Cosmetic>();
-                        if ( childCosmetic!= null)
+                        if (childCosmetic != null)
                         {
-                            GameManager.instance.cosmeticsInventory.Add(cosmeticPrefabs.Find(cosmetic=> childCosmetic.Name==cosmetic.Name));
+                            GameManager.instance.cosmeticsInventory.Add(cosmeticPrefabs.Find(cosmetic => childCosmetic.Name == cosmetic.Name));
                             cosmetics.Remove(childCosmetic);
                             toDestroy.Add(child);
                         }
                     }
-                    foreach(Transform transform in toDestroy)
+                    foreach (Transform transform in toDestroy)
                     {
                         Destroy(transform.gameObject);
                     }
@@ -132,9 +138,9 @@ public class Fella : MonoBehaviour
                 }
             });
 
-            foreach(Button button in tempInspector.GetComponentsInChildren<Button>())
+            foreach (Button button in tempInspector.GetComponentsInChildren<Button>())
             {
-                if(button.gameObject.name == "Sound")
+                if (button.gameObject.name == "Sound")
                 {
                     button.onClick.AddListener(() =>
                     {
@@ -150,6 +156,39 @@ public class Fella : MonoBehaviour
                     });
                 }
             }
+        }
+    }
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0) && !GameManager.instance.userFrozen)
+        {
+            dragging = true;
+
+
+            float clickDelta = Time.time - lastClickTime;
+            if (clickDelta <= doubleClickTime)
+            {
+                dragging = false;
+                print("double click");
+                FellaInspectionScreen();
+                gameObject.GetComponent<FellaMover>().followMouse = false;
+                GameManager.instance.userFrozen = true;
+            }
+            lastClickTime = Time.time;
+        }
+        if (Input.GetMouseButton(0) && !GameManager.instance.userFrozen && dragging)
+        {
+            gameObject.GetComponent<FellaMover>().followMouse = true;
+            gameObject.GetComponent<FellaMover>().transform.parent = null;
+            print("drag");
+        }
+        if (Input.GetMouseButtonUp(0) && dragging)
+        {
+            dragging = false;
+            gameObject.GetComponent<FellaMover>().followMouse = false;
+            GameManager.instance.canMove = true;
+            print("drag release");
+
         }
     }
 }

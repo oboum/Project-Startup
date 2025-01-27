@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FellaMover : MonoBehaviour
 {
-    private bool followMouse = false;
+    public bool followMouse = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,15 +48,6 @@ public class FellaMover : MonoBehaviour
                     transform.parent = positions[closest];
                 }
             }
-        }
-    }
-
-    private void OnMouseOver()
-    {
-        if(Input.GetMouseButtonDown(0) && !GameManager.instance.userFrozen)
-        {
-            followMouse = true;
-            transform.parent = null;
         }
     }
 }

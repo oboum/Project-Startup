@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3101749267020140422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1487916715262086401}
+  m_Layer: 3
+  m_Name: bowPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1487916715262086401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101749267020140422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.537, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8395179724653847238}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4144325008383091761
 GameObject:
   m_ObjectHideFlags: 0
@@ -37,6 +68,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7146672459428651170}
+  - {fileID: 1487916715262086401}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4964710432184587732
@@ -144,7 +176,8 @@ MonoBehaviour:
   descriptionText: He shark he sing
   cosmetics: []
   cosmeticPrefabs: []
-  cosmeticHeight: {fileID: 7146672459428651170}
+  hatPos: {fileID: 7146672459428651170}
+  bowPos: {fileID: 1487916715262086401}
   fellaAudio: {fileID: 8300000, guid: 39b63d170a15cfd41815bee8d37d34f0, type: 3}
 --- !u!54 &7168175958860300941
 Rigidbody:
@@ -280,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7146672459428651170}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: hatPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

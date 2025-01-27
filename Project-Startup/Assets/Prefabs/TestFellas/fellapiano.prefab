@@ -37,6 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 204476599476056593}
+  - {fileID: 7867228943481250308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &3687848137521572719
@@ -144,7 +145,8 @@ MonoBehaviour:
   descriptionText: He likes pretzels. Plays piano. Is man.
   cosmetics: []
   cosmeticPrefabs: []
-  cosmeticHeight: {fileID: 204476599476056593}
+  hatPos: {fileID: 204476599476056593}
+  bowPos: {fileID: 7867228943481250308}
   fellaAudio: {fileID: 8300000, guid: b80da1b5c009fae49a2142a0e50d9180, type: 3}
 --- !u!54 &2736174281294061417
 Rigidbody:
@@ -280,7 +282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 204476599476056593}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: hatPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,6 +299,37 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.0337, z: -0.002}
   m_LocalScale: {x: 0.06682259, y: 0.06682259, z: 0.06682259}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4526910966415477163}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5426064172616328300
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7867228943481250308}
+  m_Layer: 3
+  m_Name: bowPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7867228943481250308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5426064172616328300}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0085}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4526910966415477163}
