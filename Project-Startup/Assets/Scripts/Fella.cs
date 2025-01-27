@@ -4,19 +4,20 @@ using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Fella : MonoBehaviour
-{
-    private enum FellaRarity
+public enum FellaRarity
     {
         COMMON,
         RARE,
         LEGENDARY
     }
+public class Fella : MonoBehaviour
+{
+    
     [SerializeField]
     private int score;
     [UnityEngine.Range(1, 100)]
     private int fatigue;
+    public FellaRarity rarity;
 
     [SerializeField]
     private string fellaName;
