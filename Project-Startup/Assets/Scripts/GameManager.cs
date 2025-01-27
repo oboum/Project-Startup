@@ -92,6 +92,7 @@ public class GameManager : MonoBehaviour
     {
         canMove = b;
         userFrozen = !b;
+        print(!b);
     }
     public void addEXP(int xp)
     {

@@ -1821,6 +1821,7 @@ GameObject:
   - component: {fileID: 7713079447556625587}
   - component: {fileID: 7356202964257249776}
   - component: {fileID: 4426485307327007997}
+  - component: {fileID: 4444453790628138930}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -1942,9 +1943,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7836630731536272230, guid: bf4d1ee0d3f6f0045a63ea7e0a9a4d9d, type: 3}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: SetCanMove
+      - m_Target: {fileID: 4444453790628138930}
+        m_TargetAssemblyTypeName: CallCanMove, Assembly-CSharp
+        m_MethodName: CallCanMoveGM
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1954,6 +1955,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &4444453790628138930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7815545484178998699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24bb2fcc68c15424887ea1e23cfb3e16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7855687115055588046
 GameObject:
   m_ObjectHideFlags: 0

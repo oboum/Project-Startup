@@ -80,81 +80,78 @@ public class Fella : MonoBehaviour
     }
     void FellaInspectionScreen()
     {
-        if (Input.GetMouseButtonDown(1) && !GameManager.instance.userFrozen)
+        GameManager.instance.canMove = false;
+        Canvas canvas = FindAnyObjectByType<Canvas>();
+        GameObject tempInspector = Instantiate(GameManager.instance.fellaInspectionScreen, canvas.transform, false);
+
+        TMP_Text nameText = tempInspector.transform.Find("FellaName")?.GetComponent<TMP_Text>();
+        TMP_Text rarityText = tempInspector.transform.Find("FellaRarity")?.GetComponent<TMP_Text>();
+        TMP_Text fatigueText = tempInspector.transform.Find("FellaFatigue")?.GetComponent<TMP_Text>();
+        TMP_Text descText = tempInspector.transform.Find("FellaDescription")?.GetComponent<TMP_Text>();
+        TMP_Dropdown dropdown = tempInspector.transform.Find("CosmeticDropdown")?.GetComponent<TMP_Dropdown>();
+
+        if (nameText != null) nameText.text = fellaName;
+        if (rarityText != null) rarityText.text = "Rare MF prolly";
+        if (fatigueText != null) fatigueText.text = "Maybe tired?";
+        if (descText != null) descText.text = descriptionText;
+
+        List<string> cosmeticNames = new List<string>() { "Select cosmetic" };
+
+        foreach (Cosmetic cosmetic in GameManager.instance.cosmeticsInventory)
         {
-            GameManager.instance.canMove = false;
-            Canvas canvas = FindAnyObjectByType<Canvas>();
-            GameObject tempInspector = Instantiate(GameManager.instance.fellaInspectionScreen, canvas.transform, false);
+            cosmeticNames.Add(cosmetic.name);
+        }
+        cosmeticNames.Add("None");
+        dropdown.ClearOptions();
+        dropdown.AddOptions(cosmeticNames);
 
-            TMP_Text nameText = tempInspector.transform.Find("FellaName")?.GetComponent<TMP_Text>();
-            TMP_Text rarityText = tempInspector.transform.Find("FellaRarity")?.GetComponent<TMP_Text>();
-            TMP_Text fatigueText = tempInspector.transform.Find("FellaFatigue")?.GetComponent<TMP_Text>();
-            TMP_Text descText = tempInspector.transform.Find("FellaDescription")?.GetComponent<TMP_Text>();
-            TMP_Dropdown dropdown = tempInspector.transform.Find("CosmeticDropdown")?.GetComponent<TMP_Dropdown>();
-
-            if (nameText != null) nameText.text = fellaName;
-            if (rarityText != null) rarityText.text = "Rare MF prolly";
-            if (fatigueText != null) fatigueText.text = "Maybe tired?";
-            if (descText != null) descText.text = descriptionText;
-
-            List<string> cosmeticNames = new List<string>() { "Select cosmetic" };
-
-            foreach (Cosmetic cosmetic in GameManager.instance.cosmeticsInventory)
+        dropdown.onValueChanged.AddListener(delegate
+        {
+            string selectedCosmeticName = dropdown.options[dropdown.value].text;
+            print(selectedCosmeticName);
+            if (selectedCosmeticName == "None")
             {
-                cosmeticNames.Add(cosmetic.name);
+                List<Transform> toDestroy = new List<Transform>();
+                foreach (Transform child in transform)
+                {
+                    Cosmetic childCosmetic = child.GetComponent<Cosmetic>();
+                    if (childCosmetic != null)
+                    {
+                        GameManager.instance.cosmeticsInventory.Add(cosmeticPrefabs.Find(cosmetic => childCosmetic.Name == cosmetic.Name));
+                        cosmetics.Remove(childCosmetic);
+                        toDestroy.Add(child);
+                    }
+                }
+                foreach (Transform transform in toDestroy)
+                {
+                    Destroy(transform.gameObject);
+                }
+                return;
             }
-            cosmeticNames.Add("None");
-            dropdown.ClearOptions();
-            dropdown.AddOptions(cosmeticNames);
-
-            dropdown.onValueChanged.AddListener(delegate
+            else
             {
-                string selectedCosmeticName = dropdown.options[dropdown.value].text;
-                print(selectedCosmeticName);
-                if (selectedCosmeticName == "None")
-                {
-                    List<Transform> toDestroy = new List<Transform>();
-                    foreach (Transform child in transform)
-                    {
-                        Cosmetic childCosmetic = child.GetComponent<Cosmetic>();
-                        if (childCosmetic != null)
-                        {
-                            GameManager.instance.cosmeticsInventory.Add(cosmeticPrefabs.Find(cosmetic => childCosmetic.Name == cosmetic.Name));
-                            cosmetics.Remove(childCosmetic);
-                            toDestroy.Add(child);
-                        }
-                    }
-                    foreach (Transform transform in toDestroy)
-                    {
-                        Destroy(transform.gameObject);
-                    }
-                    return;
-                }
-                else
-                {
-                    Cosmetic cosmeticToAdd = GameManager.instance.cosmeticsInventory.Find(cosmetic => cosmetic.name == selectedCosmeticName);
-                    Cosmetic cosmeticInstance = Instantiate(cosmeticToAdd, transform);
-                    equipCosmetic(cosmeticInstance, cosmeticToAdd);
-                }
-            });
+                Cosmetic cosmeticToAdd = GameManager.instance.cosmeticsInventory.Find(cosmetic => cosmetic.name == selectedCosmeticName);
+                Cosmetic cosmeticInstance = Instantiate(cosmeticToAdd, transform);
+                equipCosmetic(cosmeticInstance, cosmeticToAdd);
+            }
+        });
 
-            foreach (Button button in tempInspector.GetComponentsInChildren<Button>())
+        foreach (Button button in tempInspector.GetComponentsInChildren<Button>())
+        {
+            if (button.gameObject.name == "Sound")
             {
-                if (button.gameObject.name == "Sound")
+                button.onClick.AddListener(() =>
                 {
-                    button.onClick.AddListener(() =>
-                    {
-                        TestSound();
-                    });
-                }
-                else
+                    TestSound();
+                });
+            }
+            else
+            {
+                button.onClick.AddListener(() =>
                 {
-                    button.onClick.AddListener(() =>
-                    {
-                        Destroy(tempInspector);
-                        GameManager.instance.canMove = true;
-                    });
-                }
+                    Destroy(tempInspector);
+                    GameManager.instance.canMove = true;
+                });
             }
         }
     }
@@ -172,6 +169,7 @@ public class Fella : MonoBehaviour
                 print("double click");
                 FellaInspectionScreen();
                 gameObject.GetComponent<FellaMover>().followMouse = false;
+                transform.parent = GameManager.instance.curSceneWorld.transform;
                 GameManager.instance.userFrozen = true;
             }
             lastClickTime = Time.time;
