@@ -15,8 +15,8 @@ public class Fella : MonoBehaviour
     
     [SerializeField]
     private int score;
-    [UnityEngine.Range(1, 100)]
-    private int fatigue;
+    //[UnityEngine.Range(1, 100)]
+    //private int fatigue;
     public FellaRarity rarity;
 
     [SerializeField]
@@ -92,8 +92,23 @@ public class Fella : MonoBehaviour
         TMP_Dropdown dropdown = tempInspector.transform.Find("CosmeticDropdown")?.GetComponent<TMP_Dropdown>();
 
         if (nameText != null) nameText.text = fellaName;
-        if (rarityText != null) rarityText.text = "Rare MF prolly";
-        if (fatigueText != null) fatigueText.text = "Maybe tired?";
+
+        string rareText = "";
+        switch (rarity)
+        {
+            case FellaRarity.COMMON:
+                rareText = "Common";
+                break;
+                case FellaRarity.RARE:
+                rareText = "Rare";
+                break;
+            case FellaRarity.LEGENDARY:
+                rareText = "Legendary";
+                break;
+        }
+        if (rarityText != null) rarityText.text = rareText;
+
+        if (fatigueText != null) fatigueText.text = "Energetic";
         if (descText != null) descText.text = descriptionText;
 
         List<string> cosmeticNames = new List<string>() { "Select cosmetic" };

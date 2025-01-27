@@ -128,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efb273c5d5d03884d9d08ca7eb838403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followMouse: 0
 --- !u!114 &2310049444232643109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 10
+  rarity: 1
   fellaName: Piano Man
   descriptionText: He likes pretzels. Plays piano. Is man.
   cosmetics: []
