@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Concert : MonoBehaviour
 {
@@ -30,6 +31,15 @@ public class Concert : MonoBehaviour
     [SerializeField]
     private AudioSource BG;
 
+    [SerializeField]
+    private GameObject[] muteMeButtons = new GameObject[4];
+    [SerializeField]
+    private GameObject[] muteAllButMeButtons = new GameObject[4];
+    [SerializeField]
+    private GameObject[] muteButtons = new GameObject[4];
+
+    private bool isMuted = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,12 +65,20 @@ public class Concert : MonoBehaviour
             fella.GetComponent<AudioSource>().Stop();
         }
 
+        for (int i = 0; i < fellas.Count; i++)
+        {
+            muteButtons[i].SetActive(false);
+        }
+
         fellas.Clear();
+        int curActive = 0;
         foreach (Transform child in transform.transform)
         {
             if (child.tag == "FellaPos" && child.childCount >= 2)
             {
                 fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
+                muteButtons[curActive].SetActive(true);
+                curActive++;
             }
 
         }
@@ -74,27 +92,35 @@ public class Concert : MonoBehaviour
 
     public void stopPreview()
     {
-        foreach (GameObject fella in fellas)
+        for (int i = 0; i < fellas.Count; i++)
         {
-            fella.GetComponent<AudioSource>().Stop();
+            fellas[i].GetComponent<AudioSource>().Stop();
+            muteButtons[i].SetActive(false);
         }
     }
 
     public void StartConsert()
     {
-        foreach (GameObject fella in fellas)
+        for (int i = 0; i < fellas.Count; i++)
         {
-            fella.GetComponent<AudioSource>().Stop();
+            fellas[i].GetComponent<AudioSource>().Stop();
+            muteButtons[i].SetActive(false);
         }
+
         fellas.Clear();
+
         originalCamPos = Camera.main.transform.position;
         originalCamRot = Camera.main.transform.rotation;
+
+        int curActive = 0;
 
         foreach (Transform child in transform.transform)
         {
             if (child.tag == "FellaPos" && child.childCount >= 2)
             {
                 fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
+                muteButtons[curActive].SetActive(true);
+                curActive++;
             }
             if(child.tag == "Fella")
             {
@@ -127,11 +153,12 @@ public class Concert : MonoBehaviour
 
     public void StopConsert()
     {
-        foreach (GameObject fella in fellas)
+        for (int i = 0; i < fellas.Count; i++)
         {
-            fella.GetComponent<AudioSource>().Stop();
+            fellas[i].GetComponent<AudioSource>().Stop();
+            muteButtons[i].SetActive(false);
         }
-        foreach(GameObject dancingFella in dancingFellas)
+        foreach (GameObject dancingFella in dancingFellas)
         {
             Destroy(dancingFella.GetComponent<Dancing>());
         }
@@ -182,4 +209,65 @@ public class Concert : MonoBehaviour
         mainCamera.transform.position = targetPosition;
         mainCamera.transform.rotation = targetRotation;
     }
+
+    public void MuteButtonPressed(int buttonPressed)
+    {
+        if(isMuted)
+        {
+             UnMuteAll(buttonPressed);
+        }
+        else
+        {
+            MuteAllBut(buttonPressed);
+        }
+    }
+
+    public void MuteAllBut(int notMute)
+    {
+        for(int i = 0; i < fellas.Count; i++)
+        {
+            if(i != notMute)
+            {
+                fellas[i].GetComponent<AudioSource>().mute = true;
+            }
+            else
+            {
+                muteAllButMeButtons[i].GetComponent<Image>().color = Color.gray;
+            }
+        }
+        isMuted = true;
+
+    }
+    public void UnMuteAll(int notMute)
+    {
+        foreach (GameObject fella in fellas)
+        {
+            if (fella != fellas[notMute])
+            {
+                fella.GetComponent<AudioSource>().mute = false;
+            }
+        }
+        foreach(GameObject button in muteAllButMeButtons)
+        {
+            button.GetComponent<Image>().color = Color.white;
+        }
+        isMuted = false;
+    }
+
+    public void muteMe(int buttonNumber)
+    {
+        AudioSource source = fellas[buttonNumber].GetComponent<AudioSource>();
+        Image image = muteMeButtons[buttonNumber].GetComponent<Image>();
+        if (source.mute)
+        {
+            source.mute = false;
+            image.color = Color.white;
+        }
+        else
+        {
+            source.mute = true;
+            image.color = Color.gray;
+        }
+    }
+
 }
