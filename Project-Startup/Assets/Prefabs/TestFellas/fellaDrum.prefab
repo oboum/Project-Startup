@@ -64,6 +64,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 711275958283458501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1 &3880711350253856754
 GameObject:
@@ -106,6 +109,9 @@ Transform:
   m_Children:
   - {fileID: 6471851009776540003}
   - {fileID: 1795529478777643640}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -216,7 +222,10 @@ MonoBehaviour:
   cosmetics: []
   cosmeticPrefabs: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   hatPos: {fileID: 6471851009776540003}
   bowPos: {fileID: 1795529478777643640}
   fellaAudio: {fileID: 8300000, guid: fedcb416460e8ee49a2ea224e2196651, type: 3}

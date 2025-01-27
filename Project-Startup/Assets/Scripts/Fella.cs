@@ -21,11 +21,17 @@ public class Fella : MonoBehaviour
    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
     [SerializeField] Transform hatPos;
     [SerializeField] Transform bowPos;
 
     public AudioClip fellaAudio;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -60,11 +66,14 @@ public class Fella : MonoBehaviour
     void equipCosmetic(Cosmetic instance, Cosmetic c)
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
 =======
+=======
+>>>>>>> Stashed changes
         if (instance.Name == "Hat")
             instance.transform.position = hatPos.position;
         else if (instance.Name == "Bowtie")
@@ -73,6 +82,9 @@ public class Fella : MonoBehaviour
         if (cosmetics.Contains(instance)) cosmetics.Add(instance);
         if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
        if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     }
     private void OnMouseOver()

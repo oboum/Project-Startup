@@ -72,6 +72,9 @@ Transform:
   m_Children:
   - {fileID: 2239360639091849819}
   - {fileID: 7323297410454046624}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,7 +185,10 @@ MonoBehaviour:
   cosmetics: []
   cosmeticPrefabs: []
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   hatPos: {fileID: 2239360639091849819}
   bowPos: {fileID: 7323297410454046624}
   fellaAudio: {fileID: 8300000, guid: d6179659d9e53ab4d9522e4f67ee5f7b, type: 3}
