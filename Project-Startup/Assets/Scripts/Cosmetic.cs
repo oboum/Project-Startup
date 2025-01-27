@@ -12,5 +12,6 @@ public class Cosmetic : MonoBehaviour
     {
         Mesh = GetComponent<MeshFilter>();
         Material = GetComponent<Material>();
+    
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3100240658479943864}
   - component: {fileID: 2697153219072761045}
   m_Layer: 3
-  m_Name: Hat
+  m_Name: FancyHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d262bc46f86a19418f43a9a0ed7165c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Hat
-  ScoreBonus: 15
+  Name: FancyHat
+  ScoreBonus: 10
   Mesh: {fileID: 0}
   Material: {fileID: 0}
 --- !u!1 &8222008262324062709

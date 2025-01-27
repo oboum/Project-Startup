@@ -24,10 +24,8 @@ public class Fella : MonoBehaviour
     private string descriptionText;
    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
-    [SerializeField] Transform cosmeticHeight;
-
+    
     public AudioClip fellaAudio;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,7 +62,7 @@ public class Fella : MonoBehaviour
 
     void equipCosmetic(Cosmetic instance,Cosmetic c)
     {
-        instance.transform.position =cosmeticHeight.position;
+        instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
