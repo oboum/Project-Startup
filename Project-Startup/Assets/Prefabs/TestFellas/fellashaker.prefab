@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2013865612538596418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7323297410454046624}
-  m_Layer: 3
-  m_Name: bowPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7323297410454046624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013865612538596418}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0082, z: 0.0209}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5948206904450830838}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5828628553667361544
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,28 +31,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5828628553667361544}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 12.196, y: 12.196, z: 12.196}
   m_ConstrainProportionsScale: 0
-<<<<<<< Updated upstream
-  m_Children: []
-=======
   m_Children:
   - {fileID: 2239360639091849819}
-  - {fileID: 7323297410454046624}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &7885550953157181073
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -187,24 +142,10 @@ MonoBehaviour:
   score: 5
   fellaName: Flute Boy
   descriptionText: This boy flutes hard.
-  cosmeticHeight: 1.6
   cosmetics: []
   cosmeticPrefabs: []
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-  hatPos: {fileID: 2239360639091849819}
-  bowPos: {fileID: 7323297410454046624}
+  cosmeticHeight: {fileID: 2239360639091849819}
   fellaAudio: {fileID: 8300000, guid: d6179659d9e53ab4d9522e4f67ee5f7b, type: 3}
->>>>>>> Stashed changes
 --- !u!54 &6873438568036550333
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -230,7 +171,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!82 &9006111261380982450
 AudioSource:
@@ -329,8 +270,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< Updated upstream
-=======
 --- !u!1 &6147877073801209206
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239360639091849819}
   m_Layer: 0
-  m_Name: hatPos
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -362,4 +301,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5948206904450830838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> Stashed changes

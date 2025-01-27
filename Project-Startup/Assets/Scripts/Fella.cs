@@ -7,56 +7,43 @@ using UnityEngine.UI;
 
 public class Fella : MonoBehaviour
 {
+    private enum FellaRarity
+    {
+        COMMON,
+        RARE,
+        LEGENDARY
+    }
     [SerializeField]
     private int score;
     [UnityEngine.Range(1, 100)]
     private int fatigue;
+
     [SerializeField]
     private string fellaName;
     [SerializeField]
     private string descriptionText;
-    // could use enum for fatigue
-    [SerializeField]
-    public float cosmeticHeight;
    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-    [SerializeField] Transform hatPos;
-    [SerializeField] Transform bowPos;
+    [SerializeField] Transform cosmeticHeight;
 
     public AudioClip fellaAudio;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-       
     }
-    
 
     // Update is called once per frame
     void Update()
     {
     }
+
+    public void TestSound()
+    {
+        GetComponent<AudioSource>().PlayOneShot(fellaAudio);
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "ChangeScene")
@@ -75,41 +62,12 @@ public class Fella : MonoBehaviour
         return score + bonus;
     }
 
-    void equipCosmetic(Cosmetic instance, Cosmetic c)
+    void equipCosmetic(Cosmetic instance,Cosmetic c)
     {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-        instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
+        instance.transform.position =cosmeticHeight.position;
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-        if (instance.Name == "Hat")
-            instance.transform.position = hatPos.position;
-        else if (instance.Name == "Bowtie")
-            instance.transform.position = bowPos.position;
-
-        if (cosmetics.Contains(instance)) cosmetics.Add(instance);
-        if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
-       if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
     }
     private void OnMouseOver()
     {
@@ -172,11 +130,24 @@ public class Fella : MonoBehaviour
                 }
             });
 
-            tempInspector.GetComponentInChildren<Button>().onClick.AddListener(() =>
+            foreach(Button button in tempInspector.GetComponentsInChildren<Button>())
             {
-                Destroy(tempInspector);
-                GameManager.instance.canMove = true;
-            });
+                if(button.gameObject.name == "Sound")
+                {
+                    button.onClick.AddListener(() =>
+                    {
+                        TestSound();
+                    });
+                }
+                else
+                {
+                    button.onClick.AddListener(() =>
+                    {
+                        Destroy(tempInspector);
+                        GameManager.instance.canMove = true;
+                    });
+                }
+            }
         }
     }
 }

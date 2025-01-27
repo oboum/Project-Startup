@@ -48,6 +48,25 @@ public class Concert : MonoBehaviour
         }
     }
 
+    public void playPreview()
+    {
+        fellas.Clear();
+        foreach (Transform child in transform.transform)
+        {
+            if (child.tag == "FellaPos" && child.childCount >= 1)
+            {
+                fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
+            }
+
+        }
+
+
+        foreach (GameObject fella in fellas)
+        {
+            fella.GetComponent<AudioSource>().PlayOneShot(fella.GetComponent<Fella>().fellaAudio);
+        }
+    }
+
     public void StartConsert()
     {
         fellas.Clear();
@@ -83,9 +102,8 @@ public class Concert : MonoBehaviour
 
         concertGoing = true;
         GameManager.instance.userFrozen = true; 
-
         StartCoroutine(lerpCamera(concertCamTransform.position, concertCamTransform.rotation));
-        print("thfeffwe");
+
         StartCoroutine(Timer());
 
     }

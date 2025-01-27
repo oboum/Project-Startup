@@ -49,29 +49,17 @@ MonoBehaviour:
   interactingObj: 0
   interactingUI: 0
   canMove: 1
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-  fellaInspectionScreen: {fileID: 0}
-  cosmeticsInventory: []
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   fellaInspectionScreen: {fileID: 3058136498864371907, guid: 069992d377975d141984cbef4ff3e05f, type: 3}
-  cosmeticsInventory:
-  - {fileID: 2697153219072761045, guid: 6294a343c754d224eb337b3ce7472b75, type: 3}
-  - {fileID: 727740047392196143, guid: 2e6a3ff771b15f7408487b63478ecbaf, type: 3}
+  cosmeticsInventory: []
   BaitInv: []
->>>>>>> Stashed changes
   newFellas: []
   ownedFellas:
   - {fileID: 5828628553667361544, guid: 68d31d1ec85ea674e9b04585db0e6562, type: 3}
-  - {fileID: 3535927722016138417, guid: 9f368d3bcbcf6bf47be4e4d2de4a9f4c, type: 3}
-  - {fileID: 3880711350253856754, guid: 96148c1abc01e9d46a91f5693f3f23f1, type: 3}
-  - {fileID: 3880711350253856754, guid: 96148c1abc01e9d46a91f5693f3f23f1, type: 3}
+  lvlRewards:
+  - {fileID: 7178027814460541442, guid: ea9054b722a39c44d8ce0cd1a1c4307f, type: 3}
+  - {fileID: 6858534121511387653, guid: 2e6a3ff771b15f7408487b63478ecbaf, type: 3}
+  - {fileID: 5561815539867763004, guid: c47932484a659d44c964446fb9555b88, type: 3}
+  - {fileID: 7178027814460541442, guid: ea9054b722a39c44d8ce0cd1a1c4307f, type: 3}
+  - {fileID: 3527796405166044546, guid: 6294a343c754d224eb337b3ce7472b75, type: 3}
   exp: 0
+  lvl: 0

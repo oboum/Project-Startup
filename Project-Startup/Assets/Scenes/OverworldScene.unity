@@ -422,6 +422,10 @@ MonoBehaviour:
   fovMax: 60
   panSpeed: 0.5
   zoomSpeed: 10
+  leftLimit: -300
+  rightLimit: 300
+  backwardLimit: -300
+  forwardLimit: 300
 --- !u!1 &95429628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canCapture: 1
-  fella: {fileID: 5828628553667361544, guid: 68d31d1ec85ea674e9b04585db0e6562, type: 3}
+  fella: {fileID: 4144325008383091761, guid: b6d5338118d143044bf5b68d3c9d6f76, type: 3}
 --- !u!54 &238502513
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3252,7 +3256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -4016,7 +4020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canCapture: 0
-  fella: {fileID: 5828628553667361544, guid: 68d31d1ec85ea674e9b04585db0e6562, type: 3}
+  fella: {fileID: 3535927722016138417, guid: 9f368d3bcbcf6bf47be4e4d2de4a9f4c, type: 3}
 --- !u!54 &1526207484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4063,10 +4067,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.03684658
+  m_Height: 0.068038315
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -0.000000029802322, y: 0.0000000037252903, z: 0.000000014901161}
 --- !u!23 &1526207486
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4234,7 +4238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 420, y: 215}
+  m_AnchoredPosition: {x: 294.3, y: 182.6}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1602399302
@@ -4290,7 +4294,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: FarmConcertScene
+          m_StringArgument: MainMenuScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1602399303
@@ -5564,7 +5568,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!33 &1749149775860526829
 MeshFilter:
@@ -5691,7 +5695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canCapture: 1
-  fella: {fileID: 5828628553667361544, guid: 68d31d1ec85ea674e9b04585db0e6562, type: 3}
+  fella: {fileID: 3880711350253856754, guid: 96148c1abc01e9d46a91f5693f3f23f1, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
