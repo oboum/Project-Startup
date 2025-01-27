@@ -21,6 +21,7 @@ public class FellaMover : MonoBehaviour
             if (Input.GetMouseButtonUp(0))
             {
                 followMouse = false;
+                GameManager.instance.isHoldingFella = false;
                 GameManager.instance.canMove = true;
                 transform.parent = GameManager.instance.curSceneWorld.transform;
 
@@ -28,7 +29,7 @@ public class FellaMover : MonoBehaviour
 
                 foreach (Transform child in transform.parent.transform)
                 {
-                    if (child.tag == "FellaPos" && child.childCount == 0)
+                    if (child.tag == "FellaPos" && child.childCount == 1)
                     {
                         positions.Add(child);  
                     }
@@ -55,6 +56,7 @@ public class FellaMover : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && !GameManager.instance.userFrozen)
         {
+            GameManager.instance.isHoldingFella = true;
             followMouse = true;
             transform.parent = null;
         }

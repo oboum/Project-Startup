@@ -50,10 +50,15 @@ public class Concert : MonoBehaviour
 
     public void playPreview()
     {
+        foreach (GameObject fella in fellas)
+        {
+            fella.GetComponent<AudioSource>().Stop();
+        }
+
         fellas.Clear();
         foreach (Transform child in transform.transform)
         {
-            if (child.tag == "FellaPos" && child.childCount >= 1)
+            if (child.tag == "FellaPos" && child.childCount >= 2)
             {
                 fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
             }
@@ -63,19 +68,31 @@ public class Concert : MonoBehaviour
 
         foreach (GameObject fella in fellas)
         {
-            fella.GetComponent<AudioSource>().PlayOneShot(fella.GetComponent<Fella>().fellaAudio);
+            fella.GetComponent<AudioSource>().Play();
+        }
+    }
+
+    public void stopPreview()
+    {
+        foreach (GameObject fella in fellas)
+        {
+            fella.GetComponent<AudioSource>().Stop();
         }
     }
 
     public void StartConsert()
     {
+        foreach (GameObject fella in fellas)
+        {
+            fella.GetComponent<AudioSource>().Stop();
+        }
         fellas.Clear();
         originalCamPos = Camera.main.transform.position;
         originalCamRot = Camera.main.transform.rotation;
 
         foreach (Transform child in transform.transform)
         {
-            if (child.tag == "FellaPos" && child.childCount >= 1)
+            if (child.tag == "FellaPos" && child.childCount >= 2)
             {
                 fellas.Add(child.GetComponentInChildren<Fella>().gameObject);
             }

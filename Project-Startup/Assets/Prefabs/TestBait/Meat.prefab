@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4349603726148487709}
   - component: {fileID: 5142233506639646857}
   - component: {fileID: 8103621510046052325}
+  - component: {fileID: -3292044914896820802}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Bait
@@ -108,3 +109,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-3292044914896820802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561815539867763004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a5fde280ad83b47b0f53a916bda97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: meat bait
+  itemImage: {fileID: 711834036, guid: c96a19e2263bf7b48bd89c21ebae7ab8, type: 3}

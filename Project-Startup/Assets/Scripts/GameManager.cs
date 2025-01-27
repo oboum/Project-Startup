@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool interactingObj = false; // set this to true with object interactions so the camera doesn't move
     public bool interactingUI; // no need to update this one
     public bool canMove = true;
+    public bool isHoldingFella = false;
 
     public GameObject fellaInspectionScreen;
 
@@ -37,6 +40,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private int lvl;
+
+    [SerializeField]
+    private GameObject invItemPrefab;
 
     void Awake()
     {
@@ -112,6 +118,24 @@ public class GameManager : MonoBehaviour
             exp -= expToNextLevel;
             expToNextLevel += 100 * lvl;
 
+        }
+    }
+
+    public void openInv(GameObject content)
+    {
+        foreach(Cosmetic item in cosmeticsInventory)
+        {
+            GameObject invItem = Instantiate(invItemPrefab, content.transform);
+            Item itemScript = item.gameObject.GetComponent<Item>();
+            invItem.GetComponentInChildren<Image>().sprite = itemScript.itemImage;
+            invItem.GetComponentInChildren<TextMeshProUGUI>().text = itemScript.itemName;
+        }
+        foreach (GameObject item in BaitInv)
+        {
+            GameObject invItem = Instantiate(invItemPrefab, content.transform);
+            Item itemScript = item.GetComponent<Item>();
+            invItem.GetComponentInChildren<Image>().sprite = itemScript.itemImage;
+            invItem.GetComponentInChildren<TextMeshProUGUI>().text = itemScript.itemName;
         }
     }
 }
