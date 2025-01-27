@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6187489087769018942}
   - component: {fileID: 727740047392196143}
   m_Layer: 3
-  m_Name: FancyAfro
+  m_Name: Bowtie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,13 +27,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6858534121511387653}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream:Project-Startup/Assets/Prefabs/TestCosmetics/FancyAfro.prefab
   m_LocalScale: {x: 1.96, y: 1.55, z: 1.56}
+=======
+  m_LocalScale: {x: 0.02, y: 0.017706199, z: 0.046144817}
+>>>>>>> Stashed changes:Project-Startup/Assets/Prefabs/TestCosmetics/Bowtie.prefab
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &5605317132866793645
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d262bc46f86a19418f43a9a0ed7165c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  ScoreBonus: 0
+  Name: Bowtie
+  ScoreBonus: 10
   Mesh: {fileID: 0}
   Material: {fileID: 0}

@@ -20,12 +20,20 @@ public class Fella : MonoBehaviour
     public float cosmeticHeight;
    [SerializeField] List<Cosmetic> cosmetics;
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
+<<<<<<< Updated upstream
+=======
+    [SerializeField] Transform hatPos;
+    [SerializeField] Transform bowPos;
 
+    public AudioClip fellaAudio;
+>>>>>>> Stashed changes
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+       
     }
+    
 
     // Update is called once per frame
     void Update()
@@ -49,12 +57,23 @@ public class Fella : MonoBehaviour
         return score + bonus;
     }
 
-    void equipCosmetic(Cosmetic instance,Cosmetic c)
+    void equipCosmetic(Cosmetic instance, Cosmetic c)
     {
+<<<<<<< Updated upstream
         instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
+=======
+        if (instance.Name == "Hat")
+            instance.transform.position = hatPos.position;
+        else if (instance.Name == "Bowtie")
+            instance.transform.position = bowPos.position;
+
+        if (cosmetics.Contains(instance)) cosmetics.Add(instance);
+        if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
+       if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
+>>>>>>> Stashed changes
     }
     private void OnMouseOver()
     {
