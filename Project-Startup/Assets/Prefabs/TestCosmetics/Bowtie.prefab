@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5605317132866793645}
   - component: {fileID: 6187489087769018942}
   - component: {fileID: 727740047392196143}
+  - component: {fileID: -4824932743909602322}
   m_Layer: 3
   m_Name: Bowtie
   m_TagString: Untagged
@@ -103,3 +104,17 @@ MonoBehaviour:
   ScoreBonus: 10
   Mesh: {fileID: 0}
   Material: {fileID: 0}
+--- !u!114 &-4824932743909602322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6858534121511387653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a5fde280ad83b47b0f53a916bda97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: FancyAfro
+  itemImage: {fileID: 147559036, guid: 01333d7e7fdd8fa498ba1f7c9e6bbfa4, type: 3}

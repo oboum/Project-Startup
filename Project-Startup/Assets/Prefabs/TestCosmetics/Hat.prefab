@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8689794399925980419}
   - component: {fileID: 3100240658479943864}
   - component: {fileID: 2697153219072761045}
+  - component: {fileID: -829750007643400303}
   m_Layer: 3
   m_Name: Hat
   m_TagString: Untagged
@@ -104,6 +105,20 @@ MonoBehaviour:
   ScoreBonus: 10
   Mesh: {fileID: 0}
   Material: {fileID: 0}
+--- !u!114 &-829750007643400303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3527796405166044546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2a5fde280ad83b47b0f53a916bda97f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: FancyHat
+  itemImage: {fileID: -737652656, guid: 562cec3159184854f8e41c9169722fe3, type: 3}
 --- !u!1 &8222008262324062709
 GameObject:
   m_ObjectHideFlags: 0
