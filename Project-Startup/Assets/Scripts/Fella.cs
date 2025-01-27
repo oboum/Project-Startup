@@ -62,10 +62,14 @@ public class Fella : MonoBehaviour
 
     void equipCosmetic(Cosmetic instance,Cosmetic c)
     {
-        instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
-        cosmetics.Add(instance);
-        cosmeticPrefabs.Add(c);
-        GameManager.instance.cosmeticsInventory.Remove(c);
+            if (instance.Name == "Hat")
+            instance.transform.position = hatPos.position;
+        else if (instance.Name == "Bowtie")
+            instance.transform.position = bowPos.position;
+
+        if (cosmetics.Contains(instance)) cosmetics.Add(instance);
+        if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
+       if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
     }
     private void OnMouseOver()
     {
