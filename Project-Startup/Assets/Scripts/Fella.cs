@@ -22,7 +22,10 @@ public class Fella : MonoBehaviour
     [SerializeField] List<Cosmetic> cosmeticPrefabs;
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     [SerializeField] Transform hatPos;
@@ -30,6 +33,9 @@ public class Fella : MonoBehaviour
 
     public AudioClip fellaAudio;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -67,11 +73,14 @@ public class Fella : MonoBehaviour
     {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         instance.transform.position = transform.position + new Vector3(0, cosmeticHeight, 0);
         cosmetics.Add(instance);
         cosmeticPrefabs.Add(c);
         GameManager.instance.cosmeticsInventory.Remove(c);
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         if (instance.Name == "Hat")
@@ -83,6 +92,9 @@ public class Fella : MonoBehaviour
         if (cosmeticPrefabs.Contains(c)) cosmeticPrefabs.Add(c);
        if(GameManager.instance.cosmeticsInventory.Contains(c)) GameManager.instance.cosmeticsInventory.Remove(c);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes

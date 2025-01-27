@@ -73,6 +73,9 @@ Transform:
   - {fileID: 7146672459428651170}
   - {fileID: 3717807789691648486}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -186,7 +189,10 @@ MonoBehaviour:
   cosmeticPrefabs: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   hatPos: {fileID: 7146672459428651170}

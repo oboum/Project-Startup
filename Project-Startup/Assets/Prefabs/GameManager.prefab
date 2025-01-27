@@ -51,9 +51,12 @@ MonoBehaviour:
   canMove: 1
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   fellaInspectionScreen: {fileID: 0}
   cosmeticsInventory: []
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   fellaInspectionScreen: {fileID: 3058136498864371907, guid: 069992d377975d141984cbef4ff3e05f, type: 3}

@@ -65,6 +65,9 @@ Transform:
   m_Father: {fileID: 711275958283458501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -110,6 +113,9 @@ Transform:
   - {fileID: 6471851009776540003}
   - {fileID: 1795529478777643640}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -223,7 +229,10 @@ MonoBehaviour:
   cosmeticPrefabs: []
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
   hatPos: {fileID: 6471851009776540003}

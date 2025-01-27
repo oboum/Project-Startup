@@ -30,11 +30,15 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Project-Startup/Assets/Prefabs/TestCosmetics/FancyAfro.prefab
   m_LocalScale: {x: 1.96, y: 1.55, z: 1.56}
 =======
   m_LocalScale: {x: 0.02, y: 0.017706199, z: 0.046144817}
 >>>>>>> Stashed changes:Project-Startup/Assets/Prefabs/TestCosmetics/Bowtie.prefab
+=======
+  m_LocalScale: {x: 0.02, y: 0.017706199, z: 0.046144817}
+>>>>>>> Stashed changes
 =======
   m_LocalScale: {x: 0.02, y: 0.017706199, z: 0.046144817}
 >>>>>>> Stashed changes
